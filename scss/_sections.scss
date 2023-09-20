@@ -1,0 +1,144 @@
+// heading underline 
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 75px;
+  height: 4px;
+  background:  var(--#{$prefix}primary);
+  bottom: 0;
+  left: calc(50% - 35px);
+}
+
+// chat icon
+.feedback {
+  background-color: var(--#{$prefix}primary);
+  color: white;
+  padding: 15px 15px;
+  border-radius: 50%;
+  border-color: var(--#{$prefix}primary);
+}
+
+// services section
+.services {
+  .service-column {
+    //   background: linear-gradient(#1095c1 0 0) no-repeat calc(200% - var(--p, 0%))
+    //   100% / 200% var(--p, 0.08em);
+    // transition: 0.3s var(--t, 0s),
+    //   background-position 0.3s calc(0.3s - var(--t, 0s));
+    border-radius: 10px;
+    background: linear-gradient($primary 0 0) no-repeat;
+    background-size: 100% 0%;
+    background-position: 0% 100%;
+    transition: all ease .5s;
+
+    &:hover {
+      // --p: 100%;
+      // --t: 0.3s;
+      // color: #fff;
+      background-size: 100% 100%;
+      transition: all ease .5s;
+
+      p {
+        color: var(--#{$prefix}white);
+      }
+    }
+  }
+}
+
+// go to top 2
+.go-top.active {
+  bottom: 6rem;
+  opacity: 1;
+  visibility: visible;
+}
+
+.go-top {
+  position: fixed;
+  cursor: pointer;
+  bottom: 0;
+  right: 2.3rem;
+  background-color: var(--#{$prefix}dark);
+  color: #ffffff;
+  border-radius: 50%;
+  z-index: 4;
+  width: 40px;
+  text-align: center;
+  height: 40px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: .9s;
+  transition: .9s;
+}  
+
+.go-top:hover, .go-top:focus {
+  background-color: var(--#{$prefix}primary);
+  color: #ffffff;
+}
+
+// Accordian
+.accordian {
+  --#{$prefix}border-color: red;
+}
+
+// video player
+.video-style {
+  width: 560px;
+  height: 315px;
+}
+
+// map
+.map-style {
+  height: 500px;
+  margin-bottom: -7px;
+}
+
+// offer positioning
+.offer-bg {
+  position: relative;
+}
+
+.offer-txt {
+  position: absolute;
+  top: 50px;
+  left: 45px;
+}
+
+.hero-content {
+  position: relative;
+  .offer-bg {
+    position: absolute;
+    bottom: -100px;
+    right: 25%;
+
+    .offer-txt-bg {
+      position: relative;
+
+      .offer-txt {
+        position: absolute;
+        top: 40px;
+        left: 39px;
+        text-shadow: 4px 6px 7px #000;
+      }
+    }
+  }
+}
+
+// connectivity
+.connectivity {
+  iframe {
+    height: 600px;
+  }
+}
+
+// ticket
+.ticket {
+  iframe {
+    height: 800px;
+  }
+}
+
+// pwidth
+.pwidth {
+  width: 75%;
+}
