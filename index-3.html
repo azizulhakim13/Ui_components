@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Placeholder</title>
+  <style>
+    .password-container {
+      position: relative;
+      width: 200px; /* Adjust the width as needed */
+    }
+
+    .password-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      padding-right: 30px; /* Space for the SVG */
+    }
+
+    .password-placeholder {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      pointer-events: none; /* Allow interaction with the input field */
+    }
+  </style>
+</head>
+<body>
+  <div class="password-container">
+    <input type="password" class="form-control password-input" placeholder="......">
+    <div class="password-placeholder">
+      <svg xmlns="http://www.w3.org/2000/svg" width="95" height="14" viewBox="0 0 95 14" fill="none">
+        <circle cx="6.36031" cy="7.00319" r="6.11031" fill="#666666"/>
+        <circle cx="22.8603" cy="7.00319" r="6.11031" fill="#666666"/>
+        <circle cx="39.3603" cy="7.00319" r="6.11031" fill="#666666"/>
+        <circle cx="55.8603" cy="7.00319" r="6.11031" fill="#666666"/>
+        <circle cx="72.3603" cy="7.00319" r="6.11031" fill="#666666"/>
+        <circle cx="88.8603" cy="7.00319" r="6.11031" fill="#666666"/>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

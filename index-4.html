@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .maincontainer
+{
+    width: 302px;
+    height: 299px;
+    margin: 10px;
+    float: left; /* stack each div horizontally */
+}
+
+.back h2
+{
+    position: absolute;
+}
+
+.back p
+{
+    position: absolute;
+    top: 50px;
+    font-size: 15px;
+}
+
+.front h2
+{
+    position: absolute;
+    padding: 10px;
+    top: 200px;
+    color: #000;
+}
+
+/* style the maincontainer class with all child div's of class .front */
+.maincontainer > .front
+{
+    position: absolute;
+    transform: perspective(600px) rotateY(0deg);
+    background-color: #fff;
+    width: 350px;
+    height: 350px;
+    box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.10);
+    border: 1px solid #D79851;
+    backface-visibility: hidden; /* cant see the backside elements as theyre turning around */
+    transition: transform .5s linear 0s;
+}
+
+/* style the maincontainer class with all child div's of class .back */
+.maincontainer > .back
+{
+    position: absolute;
+    transform: perspective(600px) rotateY(180deg);
+    background: #fff;
+    width: 350px;
+    height: 350px;
+    padding: 5px;
+    backface-visibility: hidden; /* cant see the backside elements as theyre turning around */
+    transition: transform .5s linear 0s;
+    box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.10);
+    border: 1px solid #D79851;
+}
+
+.maincontainer:hover > .front
+{
+    transform: perspective(600px) rotateY(-180deg);
+}
+
+.maincontainer:hover > .back
+{
+    transform: perspective(600px) rotateY(0deg);
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="maincontainer">
+    <div class="back">
+        <p>The Safeguarding Leadership Award celebrates exceptional leaders who embed shared values, vision and strategy, focusing on keeping children and young people safe.</p>
+        <a href="/">apply now</a>
+    </div>
+    <div class="front">
+        <div class="image">
+        <h2 class="position-absolute top-50 start-50 translate-middle">Copywriting</h2>
+        </div>
+    </div>
+</div>
+<div>
+
+</div>
+</body>
+</html>

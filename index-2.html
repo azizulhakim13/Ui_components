@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        .password-container {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Your name" id="name">
+            <div id="nameError" class="text-danger"></div>
+        </div>
+        <div class="mb-3">
+            <input type="email" class="form-control" placeholder="You@example.com" id="email">
+            <div id="emailError" class="text-danger"></div>
+        </div>
+        <div class="mb-3 password-container">
+            <input type="password" class="form-control" placeholder="Password" id="password">
+            <div id="passwordError" class="text-danger"></div>
+            <span class="password-toggle" onclick="togglePasswordVisibility()">👁️</span>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="validateForm()">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            resetErrors();
+            let isValid = true;
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            if (name === '') {
+                displayError('nameError', 'Name is required.');
+                isValid = false;
+            }
+
+            if (email === '') {
+                displayError('emailError', 'Email is required.');
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                displayError('emailError', 'Enter a valid email address.');
+                isValid = false;
+            }
+
+            if (password === '') {
+                displayError('passwordError', 'Password is required.');
+                isValid = false;
+            } else if (password.length < 8) {
+                displayError('passwordError', 'Password must be at least 8 characters.');
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Form is valid, you can proceed with submitting the form or other actions.
+                alert('Form is valid. Submitting...');
+            }
+        }
+
+        function resetErrors() {
+            const errorElements = document.querySelectorAll('.text-danger');
+            errorElements.forEach(element => {
+                element.textContent = '';
+            });
+        }
+
+        function displayError(id, message) {
+            const errorElement = document.getElementById(id);
+            if (errorElement) {
+                errorElement.textContent = message;
+            }
+        }
+
+        function isValidEmail(email) {
+            // Basic email validation using a regular expression.
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const passwordToggle = document.querySelector('.password-toggle');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordToggle.textContent = '👁️';
+            } else {
+                passwordInput.type = 'password';
+                passwordToggle.textContent = '👁️';
+            }
+        }
+    </script>
+</body>
+</html>
