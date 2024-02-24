@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function findEvenOddNumbers() {
+            let evenNumbers = [];
+            let oddNumbers = [];
+
+            for (let i = 0; i <= 100; i++) {
+                if (i % 2 === 0) {
+                    evenNumbers.push(i);
+                } else {
+                    oddNumbers.push(i);
+                }
+            }
+
+            console.log("Even Numbers: " + evenNumbers.join(', '));
+            console.log("Odd Numbers: " + oddNumbers.join(', '));
+        }
+
+        findEvenOddNumbers();
+
+
+        function Count(){
+            let i = 5;
+
+            for(let x = 0; x < 10; x++) {
+                console.log(i + " * " + x + " = " + (i * x));
+            }
+        }
+
+        Count();
+    </script>
+</body>
+</html>

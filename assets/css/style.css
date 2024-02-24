@@ -16871,6 +16871,14 @@ fieldset:disabled .btn {
   transition: all 0.25s ease-in-out;
 }
 
+:root {
+  --primary-color: #1e90ff;
+}
+
+h1, .h1 {
+  color: var(--primary-color, #1e90ff);
+}
+
 body {
   font-family: 'whyte_inktrap';
 }

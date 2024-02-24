@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="refresh" content="5">                  Refresh page after 5sec -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/vegus.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+    <title>Document</title>
+</head>
+<body style="font-family: monospace;">
+
+    <div id="example"></div>
+
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vegas.min.js"></script>
+    <script>
+        $("#example, body").vegas({
+            delay: 7000,
+    timer: false,
+    firstTransition: 'fade',
+    firstTransitionDuration: 5000,
+    transitionDuration: 2000,
+    animation: ['kenburns'],
+    slides: [
+        { src: "assets/img/slide-1.jpg" },
+        { src: "assets/img/slide-2.jpg" },
+        { src: "assets/img/slide-3.jpg" },
+        { src: "assets/img/slide-4.jpg" }
+    ]
+});
+    </script>
+    <script src="assets/js/all.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html> 
