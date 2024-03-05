@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Section</title>
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <!-- Link FontAwesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .swiper-container {
+      width: 100%;
+      position: relative; /* Position relative for absolute positioning */
+    }
+    .swiper-wrapper {
+      padding-top: 50px; /* Height of navigation buttons */
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+    }
+    .blog-image {
+      width: 100%;
+      height: 200px; /* Adjust height as needed */
+      object-fit: cover;
+    }
+    .blog-title {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .blog-description {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    .custom-swiper-button {
+      position: absolute;
+      top: 10px; /* Adjust top position as needed */
+      background-color: orange; /* Default background color */
+      color: blue; /* Default text color */
+      padding: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 10; /* Ensure buttons are above slides */
+    }
+    .custom-swiper-button-prev {
+      left: 10px; /* Adjust left position as needed */
+    }
+    .custom-swiper-button-next {
+      right: 10px; /* Adjust right position as needed */
+    }
+    /* Active state */
+    .custom-swiper-button:active {
+      background-color: blue;
+      color: white;
+    }
+    .svg-arrow:hover path {
+  fill: red; /* Change to desired color */
+}
+  </style>
+</head>
+<body>
+
+<div class="swiper-container">
+  <!-- Navigation buttons -->
+  <div class="custom-swiper-button custom-swiper-button-prev"><i class="fas fa-chevron-left"></i></div>
+  <div class="custom-swiper-button custom-swiper-button-next"><i class="fas fa-chevron-right"></i></div>
+  <div class="swiper-wrapper">
+    <!-- Blog Item 1 -->
+    <div class="swiper-slide">
+      <img src="blog-image-1.jpg" alt="Blog Image 1" class="blog-image">
+      <div class="blog-title">Title 1</div>
+      <div class="blog-description">Description 1</div>
+    </div>
+    <!-- Blog Item 2 -->
+    <div class="swiper-slide">
+      <img src="blog-image-2.jpg" alt="Blog Image 2" class="blog-image">
+      <div class="blog-title">Title 2</div>
+      <div class="blog-description">Description 2</div>
+    </div>
+    <!-- Blog Item 3 -->
+    <div class="swiper-slide">
+      <img src="blog-image-3.jpg" alt="Blog Image 3" class="blog-image">
+      <div class="blog-title">Title 3</div>
+      <div class="blog-description">Description 3</div>
+    </div>
+    <div class="swiper-slide">
+      <img src="blog-image-1.jpg" alt="Blog Image 1" class="blog-image">
+      <div class="blog-title">Title 1</div>
+      <div class="blog-description">Description 1</div>
+    </div>
+    <!-- Blog Item 2 -->
+    <div class="swiper-slide">
+      <img src="blog-image-2.jpg" alt="Blog Image 2" class="blog-image">
+      <div class="blog-title">Title 2</div>
+      <div class="blog-description">Description 2</div>
+    </div>
+    <!-- Blog Item 3 -->
+    <div class="swiper-slide">
+      <img src="blog-image-3.jpg" alt="Blog Image 3" class="blog-image">
+      <div class="blog-title">Title 3</div>
+      <div class="blog-description">Description 3</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: '.custom-swiper-button-next',
+      prevEl: '.custom-swiper-button-prev',
+    },
+  });
+</script>
+
+</body>
+</html>
