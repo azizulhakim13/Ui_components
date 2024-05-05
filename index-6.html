@@ -4,38 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>
+
+    <div class="py-3 text-bg-warning">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum veritatis esse quas molestias corporis neque necessitatibus iste incidunt ipsum corrupti.</p>
+    </div>
+    <div class="position-relative">
+      <div id="navbar" class="bg-light py-4">
+        <div class="container">
+          <nav class="d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <a href="#">Logo</a>
+            </div>
+            <div class="input-group mx-4" style="max-width: 700px;">
+              <input type="text" class="form-control ps-4" placeholder="Search Your Art Here" aria-label="Search Your Art Here" aria-describedby="button-addon2">
+              <a class="btn btn-dark" type="button" id="button-addon2"><i class="fa fa-search"></i></a>
+            </div>
+            <button id="menu-toggle" class="menu-toggle">
+                <i class="fas fa-bars border border-dark rounded-1 text-dark p-2"></i>
+            </button>
+          </nav>
+        </div>
+      </div>
+    <div id="mega-menu" class="mega-menu">
+
+        <ul class="nav d-md-flex justify-content-md-between first-menus border-bottom mb-3" id="pills-tab" role="tablist">
+          <div class="container d-flex flex-wrap justify-content-md-between py-3">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-home-tab-2" data-bs-toggle="pill" data-bs-target="#pills-home-2" type="button" role="tab" aria-controls="pills-home-2" aria-selected="false">Home</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-profile-tab-2" data-bs-toggle="pill" data-bs-target="#pills-profile-2" type="button" role="tab" aria-controls="pills-profile-2" aria-selected="false">Profile</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-contact-tab-2" data-bs-toggle="pill" data-bs-target="#pills-contact-2" type="button" role="tab" aria-controls="pills-contact-2" aria-selected="false">Contact</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-contact-tab-3" data-bs-toggle="pill" data-bs-target="#pills-contact-3" type="button" role="tab" aria-controls="pills-contact-3" aria-selected="false">Contact</button>
+            </li>
+          </div>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+            <div class="container pt-4 pb-5">
+              <div class="row gy-5">
+                <div class="col-md-3">
+                  <div>
+                    <h3>Text</h3>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="nav second-menu flex-column me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>
+                    <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
+                    <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</button>
+                    <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+                      <div class="d-flex">
+                        <h3>Lorem.</h3>
+                        <div>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quisquam facilis dolorum iure. Harum, obcaecati. Maxime ipsum quam reprehenderit quia?</p>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quisquam facilis dolorum iure. Harum, obcaecati. Maxime ipsum quam reprehenderit quia?</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">.2..</div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">3...</div>
+                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" tabindex="0">.4..</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-home-2" role="tabpanel" aria-labelledby="pills-home-tab-2" tabindex="0">..2.</div>
+          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">..3.</div>
+          <div class="tab-pane fade" id="pills-profile-2" role="tabpanel" aria-labelledby="pills-profile-tab-2" tabindex="0">..4.</div>
+          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">..5.</div>
+          <div class="tab-pane fade" id="pills-contact-2" role="tabpanel" aria-labelledby="pills-contact-tab-2" tabindex="0">..5.6</div>
+          <div class="tab-pane fade" id="pills-contact-3" role="tabpanel" aria-labelledby="pills-contact-tab-3" tabindex="0">..5.7</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="py-5 bg-info">
+
+    </div>
     
-    <script>
-        function findEvenOddNumbers() {
-            let evenNumbers = [];
-            let oddNumbers = [];
+<!-- JavaScript -->
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/all.min.js"></script>
+<script>
+    function playVideo(videoUrl) {
+      document.getElementById('player').innerHTML = `<iframe width="100%" height="315" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>`;
+    }
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const megaMenu = document.getElementById('mega-menu');
 
-            for (let i = 0; i <= 100; i++) {
-                if (i % 2 === 0) {
-                    evenNumbers.push(i);
-                } else {
-                    oddNumbers.push(i);
-                }
-            }
+    // Initialize display style for correct toggle behavior
+    megaMenu.style.display = 'none'; 
 
-            console.log("Even Numbers: " + evenNumbers.join(', '));
-            console.log("Odd Numbers: " + oddNumbers.join(', '));
+    menuToggle.addEventListener('click', function() {
+        if (megaMenu.style.display === "none") {
+            megaMenu.style.display = "block";
+            menuToggle.innerHTML = '<i class="fas fa-times border border-dark rounded-1 text-dark p-2"></i>'; // Change to cross icon
+        } else {
+            megaMenu.style.display = "none";
+            menuToggle.innerHTML = '<i class="fas fa-bars border border-dark rounded-1 text-dark p-2"></i>'; // Change back to bars icon
         }
+    });
+});
+  </script>
+  
 
-        findEvenOddNumbers();
 
-
-        function Count(){
-            let i = 5;
-
-            for(let x = 0; x < 10; x++) {
-                console.log(i + " * " + x + " = " + (i * x));
-            }
-        }
-
-        Count();
-    </script>
 </body>
 </html>

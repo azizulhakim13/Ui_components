@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text File Viewer</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+  <button class="btn btn-primary" id="viewTextFileBtn">View Text File</button>
+  <div class="mt-3">
+    <pre id="textFileContent" style="display: none;"></pre>
+  </div>
+
+  <div class="progress">
+    <div class="progress-bar" style="width:70%"></div>
+  </div>
+</div>
+
+
+<div class="accordion" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+            <span className='topic'>Introduction to the course </span><span className='duration'><p className='mb-0 d-flex'>29 sections <span className='px-3'><FontAwesomeIcon className="pe-1 icon-3" icon={faCirclePlay} /> 212 lectures</span> </p></span>
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+        <div class="accordion-body">
+            <ul className='list-unstyled mb-0'>
+                <li className='d-flex justify-content-between align-items-center mb-2'>
+                  <div className='d-flex align-items-center'>
+                    <div><FontAwesomeIcon className="icon-2" icon={faCirclePlay} /></div>
+                    <div className='ms-3'><button className='border-0 bg-white text-primary text-decoration-underline' onClick={openVideo}>What to expect</button></div>
+                  </div>
+                  <p className='duration mb-0'>11:18</p>
+                </li>
+                <li className='d-flex justify-content-between align-items-center mb-2'>
+                  <div className='d-flex align-align-items-center'>
+                    <div><FontAwesomeIcon className="icon-2" icon={faFile} /></div>
+                    <div className='ms-3'>
+                      <button className="border-0 bg-white" onClick={handleDownloadTextFile}>
+                        View Text File
+                      </button>
+                    </div>
+                  </div>
+                  <p className='duration mb-0'>00.40</p>
+                </li>
+              </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+          Accordion Item #2
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+        <div class="accordion-body">
+          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+          Accordion Item #3
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+        <div class="accordion-body">
+          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<script>
+document.getElementById('viewTextFileBtn').addEventListener('click', function() {
+  // Text file content
+  const textContent = "This is the content of the text file.\nYou can replace it with your own content.";
+
+  // Create a Blob from the text content
+  const blob = new Blob([textContent], { type: 'text/plain' });
+
+  // Create a URL for the Blob
+  const url = URL.createObjectURL(blob);
+
+  // Display the text file content in the pre element
+  const textFileContent = document.getElementById('textFileContent');
+  textFileContent.textContent = textContent;
+  textFileContent.style.display = 'block';
+
+  // Download the text file
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'example.txt';
+  link.click();
+});
+</script>
+
+</body>
+</html>

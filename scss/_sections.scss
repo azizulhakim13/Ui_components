@@ -1,72 +1,72 @@
-// Variables
-$color-primary: #e44848;
-$color-white: #fff;
+// // Variables
+// $color-primary: #e44848;
+// $color-white: #fff;
 
-$social-button-color: $color-white;
-$social-button-bg-color: #8C8C8C;
-$social-button-hover-color: $color-white;
-$social-button-hover-bg-color: #e44848;
-$social-button-size: 3em;
-$social-button-radius: 50%;
+// $social-button-color: $color-white;
+// $social-button-bg-color: #8C8C8C;
+// $social-button-hover-color: $color-white;
+// $social-button-hover-bg-color: #e44848;
+// $social-button-size: 3em;
+// $social-button-radius: 50%;
 
 
 
-// Animation
-@keyframes social-button-beat {
-  0% {
-    opacity: 0.8;
-    transform: scale(1);
-  }
+// // Animation
+// @keyframes social-button-beat {
+//   0% {
+//     opacity: 0.8;
+//     transform: scale(1);
+//   }
 
-  70% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
+//   70% {
+//     opacity: 0;
+//     transform: scale(1.5);
+//   }
 
-  100% {
-    opacity: 0;
-  }
-}
+//   100% {
+//     opacity: 0;
+//   }
+// }
 
-// Social Button Styles
-.social-button {
-  display: inline-block;
-  border-radius: $social-button-radius;
-  background-color: $social-button-bg-color;
-  background-color: rgba($social-button-bg-color, 0.75);
-  color: $social-button-color;
-  border: none;
-  padding: 0;
-  text-align: center;
-  width: $social-button-size;
-  height: $social-button-size;
-  line-height: $social-button-size;
-  position: relative;
-  transition: all 0.25s ease-in-out;
+// // Social Button Styles
+// .social-button {
+//   display: inline-block;
+//   border-radius: $social-button-radius;
+//   background-color: $social-button-bg-color;
+//   background-color: rgba($social-button-bg-color, 0.75);
+//   color: $social-button-color;
+//   border: none;
+//   padding: 0;
+//   text-align: center;
+//   width: $social-button-size;
+//   height: $social-button-size;
+//   line-height: $social-button-size;
+//   position: relative;
+//   transition: all 0.25s ease-in-out;
 
-  &:hover {
-    background-color: $social-button-hover-bg-color;
-    color: $social-button-hover-color;
+//   &:hover {
+//     background-color: $social-button-hover-bg-color;
+//     color: $social-button-hover-color;
 
-    &:before,
-    &:after {
-      animation: social-button-beat 1.5s ease-out infinite;
-    }
-  }
+//     &:before,
+//     &:after {
+//       animation: social-button-beat 1.5s ease-out infinite;
+//     }
+//   }
 
-  &:before,
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background-color: $social-button-hover-bg-color;
-    width: 100%;
-    height: 100%;
-    border-radius: $social-button-radius;
-    opacity: 0;
-    transition: all 0.25s ease-in-out;
-  }
-}
+//   &:before,
+//   &:after {
+//     content: "";
+//     display: block;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     z-index: -1;
+//     background-color: $social-button-hover-bg-color;
+//     width: 100%;
+//     height: 100%;
+//     border-radius: $social-button-radius;
+//     opacity: 0;
+//     transition: all 0.25s ease-in-out;
+//   }
+// }
