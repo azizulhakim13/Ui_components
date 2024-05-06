@@ -5,8 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/slider.css">
     <link rel="stylesheet" href="assets/css/style.css">
     </head>
+
+    <style>
+.customPrevBtn, .customNextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.customPrevBtn {
+    left: -50px;
+}
+
+.customNextBtn {
+    right: -50px;
+}
+
+    </style>
     <body>
 
     <div class="py-3 text-bg-warning">
@@ -103,19 +122,107 @@
 
     </div>
 
-    <div class="py-5 bg-info">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search here..." aria-label="Search">
-        <span class="input-group-text" id="basic-addon2">
-          <i class="fas fa-search"></i>
-        </span>
-      </div>
+
+  <div class="py-5">
+    <div class="container position-relative">
+        <div class="swiper mySwiper1">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide bg-light p-100">Slide 1</div>
+              <div class="swiper-slide bg-light p-100">Slide 2</div>
+              <div class="swiper-slide bg-light p-100">Slide 3</div>
+              <div class="swiper-slide bg-light p-100">Slide 1</div>
+              <div class="swiper-slide bg-light p-100">Slide 2</div>
+              <div class="swiper-slide bg-light p-100">Slide 3</div>
+              <div class="swiper-slide bg-light p-100">Slide 1</div>
+              <div class="swiper-slide bg-light p-100">Slide 2</div>
+              <div class="swiper-slide bg-light p-100">Slide 3</div>
+            </div>
+        </div>
+        <!-- Custom Navigation Buttons for the first swiper -->
+        <button class="customPrevBtn border-0 bg-white fs-2"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="customNextBtn border-0 bg-white fs-2"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
+</div>
+
+<!-- Repeat for another swiper instance -->
+<div class="py-5">
+    <div class="container position-relative">
+        <div class="swiper mySwiper2">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide bg-light p-100">Slide 1</div>
+              <div class="swiper-slide bg-light p-100">Slide 2</div>
+              <div class="swiper-slide bg-light p-100">Slide 3</div>
+              <div class="swiper-slide bg-light p-100">Slide 1</div>
+              <div class="swiper-slide bg-light p-100">Slide 2</div>
+              <div class="swiper-slide bg-light p-100">Slide 3</div>
+              <div class="swiper-slide bg-light p-100">Slide 1</div>
+              <div class="swiper-slide bg-light p-100">Slide 2</div>
+              <div class="swiper-slide bg-light p-100">Slide 3</div>
+            </div>
+        </div>
+        <!-- Custom Navigation Buttons for the second swiper -->
+        <button class="customPrevBtn border-0 bg-white fs-2"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="customNextBtn border-0 bg-white fs-2"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+</div>
+
+<!-- Repeat for another swiper instance -->
+<div class="py-5">
+    <div class="container position-relative">
+        <div class="swiper mySwiper3">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide bg-light p-100">Slide 1</div>
+              <div class="swiper-slide bg-light p-100">Slide 2</div>
+              <div class="swiper-slide bg-light p-100">Slide 3</div>
+              <div class="swiper-slide bg-light p-100">Slide 1</div>
+              <div class="swiper-slide bg-light p-100">Slide 2</div>
+              <div class="swiper-slide bg-light p-100">Slide 3</div>
+              <div class="swiper-slide bg-light p-100">Slide 1</div>
+              <div class="swiper-slide bg-light p-100">Slide 2</div>
+              <div class="swiper-slide bg-light p-100">Slide 3</div>
+            </div>
+        </div>
+        <!-- Custom Navigation Buttons for the second swiper -->
+        <button class="customPrevBtn border-0 bg-white fs-2"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="customNextBtn border-0 bg-white fs-2"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+</div>
+
+  
+
     
 <!-- JavaScript -->
 <script src="assets/js/jquery-3.6.0.min.js"></script>
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/all.min.js"></script>
+<script src="assets/js/slider.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var allSwipers = document.querySelectorAll('.swiper.mySwiper3, .swiper.mySwiper2, .swiper.mySwiper1');
+    allSwipers.forEach(function(swiperContainer, index) {
+        var swiper = new Swiper(swiperContainer, {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            pagination: {
+                el: swiperContainer.querySelector('.swiper-pagination'),
+                clickable: true,
+            },
+        });
+
+        var prevBtn = swiperContainer.parentNode.querySelector('.customPrevBtn');
+        var nextBtn = swiperContainer.parentNode.querySelector('.customNextBtn');
+
+        prevBtn.addEventListener('click', function() {
+            swiper.slidePrev();
+        });
+
+        nextBtn.addEventListener('click', function() {
+            swiper.slideNext();
+        });
+    });
+});
+
+</script>
 <script>
     function playVideo(videoUrl) {
       document.getElementById('player').innerHTML = `<iframe width="100%" height="315" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>`;
