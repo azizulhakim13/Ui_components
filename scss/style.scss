@@ -217,3 +217,60 @@ body {
 //   word-break: break-all;
 //   outline: none;
 // }
+
+
+#slider {
+  height: 3px;
+}
+
+.noUi-pips-horizontal {
+  top: -16px;
+}
+.noUi-connect {
+  background: #999; /* Blue background for the selected range */
+}
+.noUi-handle {
+  outline: none;
+  top: -5px;
+  height: 3px;
+  width: 10px;
+  background-color: #fff;
+  border: solid 2px #999;
+  cursor: pointer;
+  box-shadow: 0 0 1px #2479a2;
+}
+/* Hide the numbers but show the pips */
+.noUi-value {
+  display: none !important;
+}
+.noUi-marker {
+  display: block;
+}
+.noUi-tooltip {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+
+#sizeSlider {
+  height: 3px;
+}
+
+
+#cmSlider, #cmSlider2  {
+  height: 3px;
+}
+
+
+.noUi-horizontal .noUi-handle {
+  height: 24px;
+  width: 20px;
+}
+
+.noUi-handle:after, .noUi-handle:before {
+  display: none;
+}
+
+.noUi-horizontal .noUi-handle {
+  top: -12px;
+}

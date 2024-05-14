@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Size Range Slider Example</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.css">
+    <style>
+        #sizeSlider {
+            margin: 30px;
+            height: 10px;
+        }
+        .noUi-target,
+        .noUi-handle {
+            border-radius: 8px;
+        }
+        .noUi-connect {
+            background: #3f51b5; /* Blue background for the selected range */
+        }
+        .noUi-handle {
+            outline: none;
+            top: -5px;
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border: solid 2px #3f51b5;
+            cursor: pointer;
+            box-shadow: 0 0 1px #2479a2;
+        }
+        .noUi-tooltip {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="sizeSlider"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.js"></script>
+    <script>
+        var sizeSlider = document.getElementById('sizeSlider');
+
+        noUiSlider.create(sizeSlider, {
+            start: [0, 4], // Start at 'S' and end at 'XXL'
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 4
+            },
+            step: 1,
+            format: {
+              to: function (value) {
+                  return ['S', 'M', 'L', 'XL', 'XXL'][Math.round(value)];
+              },
+              from: function (value) {
+                  return ['S', 'M', 'L', 'XL', 'XXL'].indexOf(value);
+              }
+            },
+            tooltips: true,
+            pips: {
+                mode: 'values',
+                values: [0, 1, 2, 3, 4],
+                density: 20,
+                format: {
+                  to: function (value) {
+                      return ['S', 'M', 'L', 'XL', 'XXL'][Math.round(value)];
+                  },
+                  from: function (value) {
+                      return ['S', 'M', 'L', 'XL', 'XXL'].indexOf(value);
+                  }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

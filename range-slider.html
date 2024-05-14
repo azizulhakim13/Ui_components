@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Range Slider Example</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.css">
+
+    <style>
+        #slider {
+            margin: 30px;
+            height: 10px;
+        }
+        .noUi-target,
+        /* .noUi-handle {
+            border-radius: 8px;
+        } */
+        .noUi-connect {
+            background: #3f51b5; /* Blue background for the selected range */
+        }
+        .noUi-handle {
+            outline: none;
+            /* top: -10px; */
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border: solid 2px #000;
+            cursor: pointer;
+            box-shadow: 0 0 1px #2479a2;
+        }
+        .noUi-pips {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="slider"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.js"></script>
+    <script>
+        var slider = document.getElementById('slider');
+
+        noUiSlider.create(slider, {
+            start: [2, 8], // Initial handles start position
+            connect: true, // Display a colored bar between the handles
+            range: {
+                'min': 0,
+                'max': 10
+            },
+            step: 1, // Slider moves in increments of 1
+            pips: { // Show scale with pips
+                mode: 'steps',
+                stepped: true,
+                density: 10
+            }
+        });
+
+        slider.noUiSlider.on('update', function (values, handle) {
+            console.log('Handle ' + handle + ' value: ' + values[handle]);
+            // Here, you can handle the value updates, for example:
+            // document.getElementById('output-' + handle).textContent = values[handle];
+        });
+    </script>
+</body>
+</html>

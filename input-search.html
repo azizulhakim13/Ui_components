@@ -7,29 +7,32 @@
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     </head>
-    <style>
-        .input-group .form-control {
-            border-right: 0;
-        }
-        .input-group .input-group-text {
-            background: transparent;
-            border-left: 0;
-        }
-        .input-group .fa-search {
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
 
-<div class="container mt-5">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search here..." aria-label="Search">
-      <span class="input-group-text" id="basic-addon2">
-        <a href="#" class="btn btn-dark rounded"><i class="fas fa-search pe-2"></i>Search</a>
-      </span>
+    <div class="container mt-5">
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <select class="form-control" id="countryCode">
+                        <option value="+1">USA (+1)</option>
+                        <option value="+44">UK (+44)</option>
+                        <option value="+91">India (+91)</option>
+                        <option value="+61">Australia (+61)</option>
+                        <option value="+81">Japan (+81)</option>
+                        <option value="+49">Germany (+49)</option>
+                        <!-- Add more countries as needed -->
+                    </select>
+                </div>
+                <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
+            </div>
+            <div class="invalid-feedback">
+                Please enter a valid phone number.
+            </div>
+        </div>
     </div>
-</div>
+    
     
 <!-- JavaScript -->
 <script src="assets/js/jquery-3.6.0.min.js"></script>
@@ -37,6 +40,24 @@
 <script src="assets/js/all.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('phoneNumber').addEventListener('input', function (e) {
+        var input = e.target;
+        var regex = /^\d{10}$/;  // Adjust regex as needed for your use case
+        var feedback = input.nextElementSibling;
+
+        if (regex.test(input.value)) {
+            input.classList.remove('is-invalid');
+            input.classList.add('is-valid');
+            feedback.style.display = 'none';
+        } else {
+            input.classList.remove('is-valid');
+            input.classList.add('is-invalid');
+            feedback.style.display = 'block';
+        }
+    });
+</script>
+
 
 
 </body>

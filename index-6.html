@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/slider.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     </head>
 
@@ -25,7 +25,11 @@
     right: -50px;
 }
 
+
+
     </style>
+
+    
     <body>
 
     <div class="py-3 text-bg-warning">
@@ -119,83 +123,56 @@
           <div class="tab-pane fade" id="pills-contact-3" role="tabpanel" aria-labelledby="pills-contact-tab-3" tabindex="0">..5.7</div>
         </div>
       </div>
-
     </div>
 
-
-  <div class="py-5">
-    <div class="container position-relative">
-        <div class="swiper mySwiper1">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide bg-light p-100">Slide 1</div>
-              <div class="swiper-slide bg-light p-100">Slide 2</div>
-              <div class="swiper-slide bg-light p-100">Slide 3</div>
-              <div class="swiper-slide bg-light p-100">Slide 1</div>
-              <div class="swiper-slide bg-light p-100">Slide 2</div>
-              <div class="swiper-slide bg-light p-100">Slide 3</div>
-              <div class="swiper-slide bg-light p-100">Slide 1</div>
-              <div class="swiper-slide bg-light p-100">Slide 2</div>
-              <div class="swiper-slide bg-light p-100">Slide 3</div>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <!-- Additional navbar items -->
+        </ul>
+        <button class="btn btn-outline-success my-2 my-sm-0" id="toggleButton">Toggle Content</button>
+      </div>
+    </nav>
+    <div id="toggleContent" class="overflow-x-hidden ps-5 pb-70" style="display: none; ">
+      <div class="row gap-5">
+        <div class="col-lg-2">
+          <p class="fw-semibold mb-60">PRICE</p>
+          <div id="slider"></div>
         </div>
-        <!-- Custom Navigation Buttons for the first swiper -->
-        <button class="customPrevBtn border-0 bg-white fs-2"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="customNextBtn border-0 bg-white fs-2"><i class="fa-solid fa-chevron-right"></i></button>
-    </div>
-</div>
-
-<!-- Repeat for another swiper instance -->
-<div class="py-5">
-    <div class="container position-relative">
-        <div class="swiper mySwiper2">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide bg-light p-100">Slide 1</div>
-              <div class="swiper-slide bg-light p-100">Slide 2</div>
-              <div class="swiper-slide bg-light p-100">Slide 3</div>
-              <div class="swiper-slide bg-light p-100">Slide 1</div>
-              <div class="swiper-slide bg-light p-100">Slide 2</div>
-              <div class="swiper-slide bg-light p-100">Slide 3</div>
-              <div class="swiper-slide bg-light p-100">Slide 1</div>
-              <div class="swiper-slide bg-light p-100">Slide 2</div>
-              <div class="swiper-slide bg-light p-100">Slide 3</div>
-            </div>
+        <div class="col-lg-2">
+          <p class="fw-semibold mb-60">SIZE</p>
+          <div id="sizeSlider"></div>
         </div>
-        <!-- Custom Navigation Buttons for the second swiper -->
-        <button class="customPrevBtn border-0 bg-white fs-2"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="customNextBtn border-0 bg-white fs-2"><i class="fa-solid fa-chevron-right"></i></button>
-    </div>
-</div>
-
-<!-- Repeat for another swiper instance -->
-<div class="py-5">
-    <div class="container position-relative">
-        <div class="swiper mySwiper3">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide bg-light p-100">Slide 1</div>
-              <div class="swiper-slide bg-light p-100">Slide 2</div>
-              <div class="swiper-slide bg-light p-100">Slide 3</div>
-              <div class="swiper-slide bg-light p-100">Slide 1</div>
-              <div class="swiper-slide bg-light p-100">Slide 2</div>
-              <div class="swiper-slide bg-light p-100">Slide 3</div>
-              <div class="swiper-slide bg-light p-100">Slide 1</div>
-              <div class="swiper-slide bg-light p-100">Slide 2</div>
-              <div class="swiper-slide bg-light p-100">Slide 3</div>
-            </div>
+        <div class="col-lg-2">
+          <p class="fw-semibold mb-60">WIDTH</p>
+          <div id="cmSlider"></div>
         </div>
-        <!-- Custom Navigation Buttons for the second swiper -->
-        <button class="customPrevBtn border-0 bg-white fs-2"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="customNextBtn border-0 bg-white fs-2"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="col-lg-2">
+          <p class="fw-semibold mb-60">HEIGHT</p>
+          <div id="cmSlider2"></div>
+        </div>
+      </div>
     </div>
-</div>
+    
 
-  
+
 
     
 <!-- JavaScript -->
+
 <script src="assets/js/jquery-3.6.0.min.js"></script>
 <script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/wnumb/wNumb.js"></script>
+
 <script src="assets/js/all.min.js"></script>
-<script src="assets/js/slider.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var allSwipers = document.querySelectorAll('.swiper.mySwiper3, .swiper.mySwiper2, .swiper.mySwiper1');
@@ -248,7 +225,114 @@ document.addEventListener('DOMContentLoaded', function() {
 });
   </script>
   
+<script>
+document.getElementById('toggleButton').addEventListener('click', function() {
+  var content = document.getElementById('toggleContent');
+  content.style.display = content.style.display === 'block' ? 'none' : 'block';
+});
 
+</script>
+
+<script>
+  var slider = document.getElementById('slider');
+
+  noUiSlider.create(slider, {
+      start: [50, 5000], // Initial handles start position
+      connect: true, // Display a colored bar between the handles
+      range: {
+          'min': 50,
+          'max': 5000
+      },
+      step: 620, // Slider moves in increments of 620
+      tooltips: [wNumb({ decimals: 0 }), wNumb({ decimals: 0 })],
+      pips: {
+          mode: 'positions',
+          values: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100], // Multiple positions to mark the levels
+          density: 10,
+          format: wNumb({
+              decimals: 0
+          })
+      }
+  });
+
+
+
+var sizeSlider = document.getElementById('sizeSlider');
+
+noUiSlider.create(sizeSlider, {
+    start: [0, 4], // Start at 'S' and end at 'XXL'
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 4
+    },
+    step: 1,
+    format: {
+      to: function (value) {
+          return ['S', 'M', 'L', 'XL', 'XXL'][Math.round(value)];
+      },
+      from: function (value) {
+          return ['S', 'M', 'L', 'XL', 'XXL'].indexOf(value);
+      }
+    },
+    tooltips: true,
+    pips: {
+        mode: 'values',
+        values: [0, 1, 2, 3, 4],
+        density: 20,
+        format: {
+          to: function (value) {
+              return ['S', 'M', 'L', 'XL', 'XXL'][Math.round(value)];
+          },
+          from: function (value) {
+              return ['S', 'M', 'L', 'XL', 'XXL'].indexOf(value);
+          }
+        }
+    }
+});
+
+
+var cmSlider = document.getElementById('cmSlider');
+
+noUiSlider.create(cmSlider, {
+    start: [50, 500], // Starting range
+    connect: true, // Visually connects the two handles
+    range: {
+        'min': 50,
+        'max': 500
+    },
+    step: 56.25, // Calculated step (450 range / 8 intervals = 56.25 per step)
+    tooltips: [wNumb({ decimals: 0 }), wNumb({ decimals: 0 })], // Tooltips that display the values
+    pips: {
+        mode: 'positions', // Place pips at specific positions
+        values: [0, 12.5, 25, 37.5, 50, 62.5, 75, 87.5, 100], // Positions for each interval
+        density: 12.5,
+        format: wNumb({ decimals: 0 })
+    }
+});
+
+
+
+
+var cmSlider2 = document.getElementById('cmSlider2');
+
+noUiSlider.create(cmSlider2, {
+    start: [50, 500], // Starting range
+    connect: true, // Visually connects the two handles
+    range: {
+        'min': 50,
+        'max': 500
+    },
+    step: 56.25, // Calculated step (450 range / 8 intervals = 56.25 per step)
+    tooltips: [wNumb({ decimals: 0 }), wNumb({ decimals: 0 })], // Tooltips that display the values
+    pips: {
+        mode: 'positions', // Place pips at specific positions
+        values: [0, 12.5, 25, 37.5, 50, 62.5, 75, 87.5, 100], // Positions for each interval
+        density: 12.5,
+        format: wNumb({ decimals: 0 })
+    }
+});
+</script>
 
 </body>
 </html>

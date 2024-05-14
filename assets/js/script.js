@@ -111,3 +111,26 @@ function toggleDarkMode() {
 
 
 
+
+
+// slider2
+var slider = document.getElementById('slider');
+
+noUiSlider.create(slider, {
+    start: [50, 5000], // Initial handles start position
+    connect: true, // Display a colored bar between the handles
+    range: {
+        'min': 50,
+        'max': 5000
+    },
+    step: 620, // Slider moves in increments of 620
+    tooltips: [wNumb({ decimals: 0 }), wNumb({ decimals: 0 })],
+    pips: {
+        mode: 'positions',
+        values: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100], // Multiple positions to mark the levels
+        density: 10,
+        format: wNumb({
+            decimals: 0
+        })
+    }
+});

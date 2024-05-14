@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CM Range Slider</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.css">
+
+    <style>
+        #cmSlider {
+            margin: 30px;
+            height: 10px;
+        }
+        .noUi-target,
+        .noUi-handle {
+            border-radius: 8px;
+        }
+        .noUi-connect {
+            background: #3f51b5; /* Blue background for the selected range */
+        }
+        .noUi-handle {
+            outline: none;
+            top: -5px;
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border: solid 2px #3f51b5;
+            cursor: pointer;
+            box-shadow: 0 0 1px #2479a2;
+        }
+        .noUi-tooltip {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        .noUi-marker {
+            display: block; /* Ensure markers are visible */
+        }
+        .noUi-value {
+            display: none; /* Hide numeric values next to the markers */
+        }
+    </style>
+</head>
+<body>
+    <div id="cmSlider"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wnumb/wNumb.js"></script>
+    <script>
+        var cmSlider = document.getElementById('cmSlider');
+
+        noUiSlider.create(cmSlider, {
+            start: [50, 500], // Starting range
+            connect: true, // Visually connects the two handles
+            range: {
+                'min': 50,
+                'max': 500
+            },
+            step: 56.25, // Calculated step (450 range / 8 intervals = 56.25 per step)
+            tooltips: [wNumb({ decimals: 0 }), wNumb({ decimals: 0 })], // Tooltips that display the values
+            pips: {
+                mode: 'positions', // Place pips at specific positions
+                values: [0, 12.5, 25, 37.5, 50, 62.5, 75, 87.5, 100], // Positions for each interval
+                density: 4,
+                format: wNumb({ decimals: 0 })
+            }
+        });
+    </script>
+</body>
+</html>
