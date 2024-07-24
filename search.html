@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Input with Icon and Results</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .results-container {
+            display: none;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, .2), 0 1px 0 rgba(0, 0, 0, .05) inset, 0 -5px 0 0 #fff;
+            position: absolute;
+            width: 100%;
+            background: #fff;
+            z-index: 1000;
+        }
+
+        .search-btn {
+            margin-left: -52px;
+        }
+
+        .search-tab {
+            background-color: rgba(55, 73, 187, .05);
+        }
+
+        .form-control:focus {
+            background: transparent;
+        }
+
+        .position-relative {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="input-group mb-3 position-relative">
+            <input type="text" class="form-control rounded-2" id="searchInput" placeholder="Search...">
+            <div class="input-group-append">
+                <button class="btn search-btn px-3" type="button" id="searchButton">
+                    <img src="https://www.iconpacks.net/icons/2/free-search-icon-2903-thumb.png" alt="Search Icon" width="20" height="20">
+                </button>
+            </div>
+            <div class="results-container" id="resultsContainer">
+                <div id="dynamicResults" class="px-3 py-2"></div>
+                <div class="results-container-content">
+                    <div>
+                        <a href="#">
+                            <div>
+                                <img src="" alt="">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const dynamicResults = document.getElementById('dynamicResults');
+
+        searchInput.addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                resultsContainer.style.display = 'block';
+                // Add dynamic content based on the input value
+                dynamicResults.innerHTML = `<p>Results for: ${this.value}</p>`;
+            } else {
+                resultsContainer.style.display = 'none';
+                dynamicResults.innerHTML = ''; // Clear dynamic content
+            }
+        });
+
+        document.getElementById('searchButton').addEventListener('click', function() {
+            const query = searchInput.value;
+            if (query) {
+                const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                window.location.href = url;
+            }
+        });
+
+        // Close the results container when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!searchInput.contains(event.target) && !resultsContainer.contains(event.target)) {
+                resultsContainer.style.display = 'none';
+            }
+        });
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

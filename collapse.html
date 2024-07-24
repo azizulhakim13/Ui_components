@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Collapse</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <style>
+        .chevron.rotate {
+            transform: rotate(180deg);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="#nestedItems" class="collapse-toggle" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nestedItems">
+                    Click to toggle <i class="fas fa-chevron-down chevron"></i>
+                </a>
+                <ul class="collapse list-group list-group-flush" id="nestedItems">
+                    <li class="list-group-item">Nested Item 1</li>
+                    <li class="list-group-item">Nested Item 2</li>
+                    <li class="list-group-item">Nested Item 3</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/all.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.collapse-toggle').click(function() {
+                $(this).find('.chevron').toggleClass('rotate');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Content-Adaptive Divs</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .animated-div {
+            width: 100%;
+            position: fixed;
+            left: 0;
+            transition: all 0.5s ease;
+            overflow: auto;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        #topDiv {
+            top: -100%; /* Initially off-screen */
+            overflow: auto;
+        }
+
+        #bottomDiv {
+            height: 40%;
+            bottom: -100%; /* Initially off-screen */
+            display: none; /* Default to not displayed */
+        }
+
+        .close-icon {
+            cursor: pointer;
+        }
+
+
+        /* Media Query for screens wider than 768px */
+        @media (min-width: 768px) {
+            #topDiv {
+                height: 60%;
+            }
+            #bottomDiv {
+                display: block; /* Only display on larger screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <button id="openButton">Open Divs</button>
+    <div id="topDiv" class="animated-div">
+        <div class="container"> 
+            <div>
+                <span id="closeButton" class="close-icon fs-4">&#10006;</span>
+            </div>
+            <h1>Top Div</h1>
+            <p>More content can go here, and the div will expand to fit.</p>
+        </div>
+    </div>
+    <div id="bottomDiv" class="animated-div">
+        <h1>Bottom Div</h1>
+    </div>
+
+    <script>
+        document.getElementById('openButton').addEventListener('click', function() {
+            document.getElementById('topDiv').style.top = "0";
+            document.getElementById('bottomDiv').style.bottom = "0";
+        });
+
+        document.getElementById('closeButton').addEventListener('click', function() {
+            document.getElementById('topDiv').style.top = "-100%";
+            document.getElementById('bottomDiv').style.bottom = "-100%";
+        });
+    </script>
+</body>
+</html>
