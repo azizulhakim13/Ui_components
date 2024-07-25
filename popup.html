@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Popup Example</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+#openPopupBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.popup {
+    display: none; /* Hidden by default */
+    position: absolute;
+    border: 1px solid #888;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.popup-content {
+    padding: 20px;
+    width: 300px;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <button id="openPopupBtn">Open Popup</button>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Popup Title</h2>
+            <p>This is the content inside the popup.</p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+    var popup = document.getElementById('popup');
+    var openPopupBtn = document.getElementById('openPopupBtn');
+    var closeBtn = document.getElementsByClassName('close-btn')[0];
+
+    openPopupBtn.onclick = function(event) {
+        var rect = openPopupBtn.getBoundingClientRect();
+        popup.style.left = rect.left + "px";
+        popup.style.top = (rect.top + rect.height) + "px";
+        popup.style.display = 'block';
+    }
+
+    closeBtn.onclick = function() {
+        popup.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target != popup && event.target != openPopupBtn) {
+            popup.style.display = 'none';
+        }
+    }
+});
+
+    </script>
+</body>
+</html>
