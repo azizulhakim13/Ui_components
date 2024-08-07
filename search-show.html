@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Marquee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .bg-white {
+            background-color: #fff;
+        }
+        .shadow-sm {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .rounded-5 {
+            border-radius: 5px;
+        }
+        .px-3 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .pt-2 {
+            padding-top: 0.5rem;
+        }
+        .mt-4 {
+            margin-top: 1.5rem;
+        }
+        .badge-main {
+            position: relative;
+            cursor: pointer;
+        }
+        .badge-position {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: -10px;
+            right: -10px;
+            height: 20px;
+            width: 20px;
+            color: #fff;
+            background-color: red;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .marquee {
+            color: #000;
+            height: 35px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+        }
+        .marquee-content {
+            display: flex;
+            animation: marquee 15s linear infinite;
+        }
+        .marquee span {
+            display: inline-block;
+            padding: 0 2rem;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+
+
+        .compare-button-position.compare-button-position {
+            bottom: 290px;
+            right: 220px;
+        }
+
+        .compare-button-position {
+            position: fixed;
+            bottom: 90px !important;
+            right: 20px !important;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1), -5px 5px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,.2);
+        }
+        .product-image {
+            height: 40px;
+            width: 40px;
+        }
+        .compare-product {
+            border-bottom: 1px solid #eee;
+        }
+        .compare-product:hover {
+            background-color: rgba(55,73,187,.04);
+        }
+        .popup {
+            display: none; 
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0 0 30px rgba(0,0,0,.2) , -1px 0 0 0 rgba(255,255,255,.2);
+            z-index: 1000;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .popup-content {
+            width: 400px;
+        }
+        .close-btn {
+            color: #aaa;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .close-btn:hover,
+        .close-btn:focus {
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-white shadow-sm rounded-5 px-3 pt-2 mt-4">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span>27th July Saturday, all our outlets are open. Additionally, our online activities are open and operational.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="compare-button-position z-3  d-flex">
+        <div class="badge-main">
+            <div class="">
+                <p class="badge-position z-3 mb-0">2</p>
+            </div>
+            <div class="position-relative">
+                <button class="text-bg-dark px-1 py-2 rounded-1 openPopupBtn">
+                    <span>
+                        <p class="text-center mb-0"><i class="fa-solid fa-cart-plus"></i></p>
+                        <p class="fs-10 opacity-75 mb-0">COMPARE</p>
+                    </span>
+                </button>
+                <div class="popup">
+                    <div class="popup-content">
+                        <div class="popup-head bg-dark ps-24 pe-3 pb-1 d-flex justify-content-between align-items-center">
+                            <h5 class="fs-6 text-white mb-0">Compare Product</h5>
+                            <p class="text-white mb-0"><span class="close-btn fs-2">&times;</span></p>
+                        </div>
+                        <div>
+                            <div class="compare-product d-flex justify-content-between align-items-center px-3 py-12">
+                                <div class="d-flex gap-3">
+                                    <img class="product-image" src="assets/img/product.webp" alt="product image">
+                                    <h5 class="fs-6">Windows Server 2022 - Device CAL</h5>
+                                </div>
+                                <div>
+                                    <a href=""><i class="fa-solid fa-trash-can text-secondary"></i></a>
+                                </div>
+                            </div>
+                            <div class="compare-product d-flex justify-content-between align-items-center px-3 py-12">
+                                <div class="d-flex gap-3">
+                                    <img class="product-image" src="assets/img/product.webp" alt="product image">
+                                    <h5 class="fs-6">Windows Server 2022 - Device CAL</h5>
+                                </div>
+                                <div>
+                                    <a href=""><i class="fa-solid fa-trash-can text-secondary"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-4 justify-content-end align-items-center px-3 my-2">
+                            <div>
+                                <a href="#" class="text-decoration-underline">Clear</a>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-dark">Compare Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="compare-button-position compare-button-position2 z-3  d-flex">
+        <div class="badge-main">
+            <div class="">
+                <p class="badge-position z-3 mb-0">3</p>
+            </div>
+            <div class="position-relative">
+                <button class="text-bg-dark px-1 py-2 rounded-1 openPopupBtn">
+                    <span>
+                        <p class="text-center mb-0"><i class="fa-solid fa-cart-plus"></i></p>
+                        <p class="fs-10 opacity-75 mb-0">COMPARE</p>
+                    </span>
+                </button>
+                <div class="popup">
+                    <div class="popup-content">
+                        <div class="popup-head bg-dark ps-24 pe-3 pb-1 d-flex justify-content-between align-items-center">
+                            <h5 class="fs-6 text-white mb-0">Compare Product</h5>
+                            <p class="text-white mb-0"><span class="close-btn fs-2">&times;</span></p>
+                        </div>
+                        <div>
+                            <div class="compare-product d-flex justify-content-between align-items-center px-3 py-12">
+                                <div class="d-flex gap-3">
+                                    <img class="product-image" src="assets/img/product.webp" alt="product image">
+                                    <h5 class="fs-6">Windows Server 2022 - Device CAL</h5>
+                                </div>
+                                <div>
+                                    <a href=""><i class="fa-solid fa-trash-can text-secondary"></i></a>
+                                </div>
+                            </div>
+                            <div class="compare-product d-flex justify-content-between align-items-center px-3 py-12">
+                                <div class="d-flex gap-3">
+                                    <img class="product-image" src="assets/img/product.webp" alt="product image">
+                                    <h5 class="fs-6">Windows Server 2022 - Device CAL</h5>
+                                </div>
+                                <div>
+                                    <a href=""><i class="fa-solid fa-trash-can text-secondary"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-4 justify-content-end align-items-center px-3 my-2">
+                            <div>
+                                <a href="#" class="text-decoration-underline">Clear</a>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-dark">Compare Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var openPopupBtns = document.querySelectorAll('.openPopupBtn');
+            var closeBtns = document.querySelectorAll('.close-btn');
+            var popups = document.querySelectorAll('.popup');
+
+            openPopupBtns.forEach((btn, index) => {
+                btn.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    var popup = popups[index];
+                    popup.style.position = 'absolute';
+                    popup.style.top = '-200px';
+                    popup.style.right = '0px';
+                    popup.style.display = 'block';
+                    popup.style.opacity = 0;
+                    setTimeout(() => {
+                        popup.style.opacity = 1;
+                    }, 10);
+                });
+            });
+
+            closeBtns.forEach((btn, index) => {
+                btn.addEventListener('click', function(event) {
+                    var popup = popups[index];
+                    popup.style.opacity = 0;
+                    setTimeout(() => {
+                        popup.style.display = 'none';
+                    }, 300);
+                });
+            });
+
+            window.addEventListener('click', function(event) {
+                popups.forEach((popup) => {
+                    if (event.target == popup) {
+                        popup.style.opacity = 0;
+                        setTimeout(() => {
+                            popup.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

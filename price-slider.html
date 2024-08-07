@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Range Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .slider-container {
+            width: 300px;
+            position: relative;
+        }
+
+        .slider-track {
+            position: absolute;
+            height: 8px;
+            background: #ddd;
+            top: 10px; /* Adjusted for proper alignment */
+            left: 0;
+            right: 0;
+        }
+
+        .slider {
+            position: absolute;
+            width: 100%;
+            pointer-events: none;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            background: transparent;
+            outline: none;
+            z-index: 2;
+            top: 10px; /* Adjusted for proper alignment */
+            margin: 0;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border: 2px solid #ff5722;
+            cursor: pointer;
+            border-radius: 50%;
+            pointer-events: all;
+            z-index: 3;
+            position: relative;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border: 2px solid #ff5722;
+            cursor: pointer;
+            border-radius: 50%;
+            pointer-events: all;
+            z-index: 3;
+            position: relative;
+        }
+
+        .slider-values {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px; /* Adjusted for proper alignment */
+        }
+
+        .slider-values input {
+            width: 45%;
+            padding: 5px;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider-track"></div>
+        <input type="range" id="min-slider" class="slider" min="0" max="1000" value="100">
+        <input type="range" id="max-slider" class="slider" min="0" max="1000" value="900">
+        <div class="slider-values">
+            <input type="number" id="min-value" readonly>
+            <input type="number" id="max-value" readonly>
+        </div>
+    </div>
+    <script>
+        const minSlider = document.getElementById('min-slider');
+        const maxSlider = document.getElementById('max-slider');
+        const minValue = document.getElementById('min-value');
+        const maxValue = document.getElementById('max-value');
+
+        const updateValues = () => {
+            const minVal = parseInt(minSlider.value);
+            const maxVal = parseInt(maxSlider.value);
+
+            if (minVal > maxVal) {
+                if (this === minSlider) {
+                    maxSlider.value = minVal;
+                } else {
+                    minSlider.value = maxVal;
+                }
+            }
+
+            minValue.value = minSlider.value;
+            maxValue.value = maxSlider.value;
+
+            const minPercent = (minSlider.value / minSlider.max) * 100;
+            const maxPercent = (maxSlider.value / maxSlider.max) * 100;
+
+            document.querySelector('.slider-track').style.background = `linear-gradient(to right, #ddd ${minPercent}%, #ff5722 ${minPercent}%, #ff5722 ${maxPercent}%, #ddd ${maxPercent}%)`;
+        };
+
+        minSlider.addEventListener('input', updateValues);
+        maxSlider.addEventListener('input', updateValues);
+
+        window.onload = updateValues;
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Accordion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .accordion-container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .accordion {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .accordion-header h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .accordion-content {
+            padding: 15px;
+            display: none;
+        }
+
+        .accordion-content.open {
+            display: block;
+        }
+
+        .icon {
+            transition: transform 0.3s;
+        }
+
+        .icon.rotate {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="accordion-container">
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Accordion 1</h3>
+                <i class="fas fa-angle-up icon rotate"></i>
+            </div>
+            <div class="accordion-content open">
+                <p>Content for accordion 1.</p>
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Accordion 2</h3>
+                <i class="fas fa-angle-up icon rotate"></i>
+            </div>
+            <div class="accordion-content open">
+                <p>Content for accordion 2.</p>
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Accordion 3</h3>
+                <i class="fas fa-angle-up icon rotate"></i>
+            </div>
+            <div class="accordion-content open">
+                <p>Content for accordion 3.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.icon');
+
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                icon.classList.remove('rotate');
+            } else {
+                content.classList.add('open');
+                icon.classList.add('rotate');
+            }
+        }
+    </script>
+</body>
+</html>
