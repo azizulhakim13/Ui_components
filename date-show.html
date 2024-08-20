@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Bengali Date and Time</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="datetime-container">
+        <div id="english-date" class="date"></div>
+        <div id="bengali-date" class="date"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="script.js"></script>
+<script>
+    // Mapping of English days to Bengali days
+const bengaliDays = {
+    "Sunday": "রবিবার",
+    "Monday": "সোমবার",
+    "Tuesday": "মঙ্গলবার",
+    "Wednesday": "বুধবার",
+    "Thursday": "বৃহস্পতিবার",
+    "Friday": "শুক্রবার",
+    "Saturday": "শনিবার"
+};
+
+// Mapping of English months to Bengali months
+const bengaliMonths = {
+    "January": "জানুয়ারি",
+    "February": "ফেব্রুয়ারি",
+    "March": "মার্চ",
+    "April": "এপ্রিল",
+    "May": "মে",
+    "June": "জুন",
+    "July": "জুলাই",
+    "August": "আগস্ট",
+    "September": "সেপ্টেম্বর",
+    "October": "অক্টোবর",
+    "November": "নভেম্বর",
+    "December": "ডিসেম্বর"
+};
+
+// Helper function to convert English digits to Bengali
+function convertToBengaliNumber(number) {
+    const bengaliDigits = {
+        0: '০', 1: '১', 2: '২', 3: '৩', 4: '৪', 5: '৫', 6: '৬', 7: '৭', 8: '৮', 9: '৯'
+    };
+    return number.toString().split('').map(digit => bengaliDigits[digit] || digit).join('');
+}
+
+// Simple function to generate Bengali calendar date
+function getCustomBengaliDate() {
+    const bengaliMonths = ["বৈশাখ", "জ্যৈষ্ঠ", "আষাঢ়", "শ্রাবণ", "ভাদ্র", "আশ্বিন", "কার্তিক", "অগ্রহায়ণ", "পৌষ", "মাঘ", "ফাল্গুন", "চৈত্র"];
+    const now = moment();
+
+    let bengaliYear = now.year() - 594; // Approximation for Bengali year
+    let bengaliMonthIndex = (now.month() + 9) % 12; // Simple month mapping
+    let bengaliDay = now.date();
+
+    return `${convertToBengaliNumber(bengaliDay)} ${bengaliMonths[bengaliMonthIndex]} ${convertToBengaliNumber(bengaliYear)}`;
+}
+
+// Function to update the dates
+function updateDate() {
+    const now = moment();
+
+    // Get the current day of the week and month in English and map them to Bengali
+    const englishDay = now.format('dddd');
+    const englishMonth = now.format('MMMM');
+    const bengaliDay = bengaliDays[englishDay];
+    const bengaliMonth = bengaliMonths[englishMonth];
+
+    // Display English date in Bangla (with Bengali day and month)
+    const englishDate = now.format('D YYYY');
+    document.getElementById('english-date').innerText = `${bengaliDay}, ${convertToBengaliNumber(now.date())} ${bengaliMonth} ${convertToBengaliNumber(now.year())}`;
+
+    // Display Bengali date (using custom logic)
+    const bengaliDate = getCustomBengaliDate();
+    document.getElementById('bengali-date').innerText = bengaliDate;
+}
+
+// Initial call to display the date immediately
+updateDate();
+
+</script>
+</body>
+</html>
